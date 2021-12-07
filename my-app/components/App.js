@@ -1,22 +1,24 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Header} from './Header'
-import {Christmas} from './Christmas'
-import {getChristmas} from '../services/ChristmasService'
+import {getWeather} from '../services/ChristmasService'
 import Snowfall from 'react-snowfall'
 import Head from 'next/head'
+import {Weather} from "./Weather";
 
 class App extends Component {
 
   state = {
-    christmas: {}
+    christmas: {},
   }
 
-  async componentDidMount() {
-    let christmas = await getChristmas()
-    console.log(christmas);
-    this.setState({christmas: christmas})
-  }
+    async componentDidMount() {
+        let weather = await getWeather();
+        this.setState({weather: weather.current.feelslike_c});
+        setInterval(async () => {
+            let weather = await getWeather();
+            this.setState({weather: weather.current.feelslike_c});
+        }, 900_000);
+    }
 
   render() {
 
@@ -26,6 +28,7 @@ class App extends Component {
             <meta http-equiv="refresh" content="30" />
         </Head>
         <div className="row mrgnbtm">
+            <Weather weather={this.state.weather} />
           <Snowfall />
 
         </div>
