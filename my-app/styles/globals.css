@@ -4,7 +4,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    background-color: #0b1c23;
+    background-color: #0b1c23!important;
 }
 
 a {
@@ -19,14 +19,14 @@ a {
 .header {
   width: 100%;
   padding: 2%;
-  background-color: white;
+
   color: white;
   text-align: center;
 }
 
 .display-board {
   width: 100%;
-  background-color: rgb(555, 200, 789);
+
   padding: 5%;
 }
 
@@ -39,6 +39,7 @@ a {
 .mrgnbtm {
   margin-top: 20px;
 }
+
 
 .temp {
   margin: 0 auto;
