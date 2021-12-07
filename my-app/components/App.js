@@ -8,7 +8,6 @@ import {Weather} from "./Weather";
 import axios from "axios";
 
 
-
 class App extends Component {
 
   state = {
@@ -25,6 +24,17 @@ class App extends Component {
       } catch (error) {
           console.error(error);
       }
+      setInterval(async () => {
+          try {
+              const response = await axios.get(api);
+              this.setState({
+                  hind: response.data.data[0].price
+              });
+          } catch (error) {
+              console.error(error);
+          }
+      }, 3600000);
+
 
       let weather = await getWeather();
       this.setState({weather: weather.current.feelslike_c});
@@ -41,12 +51,15 @@ class App extends Component {
         <Head>
             <meta http-equiv="refresh" content="30" />
         </Head>
+          <Rudolf />
+        <div className="rows info">
+            <div className={'block price'}>{this.state.hind} €/kWh</div>
+            <div className={'block weather'}>
+                 <Weather weather={this.state.weather} />
+                </div>
 
 
-        <div className="rows mrgnbtm">
-            <div>{this.state.hind} €/kWh</div>
-            <Weather weather={this.state.weather} />
-            <Rudolf />
+
         </div>
           <div id="santa">
               <img src="santa.png" />
