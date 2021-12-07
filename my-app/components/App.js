@@ -1,23 +1,26 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Header} from './Header'
-import {Christmas} from './Christmas'
-import {getChristmas} from '../services/ChristmasService'
+import {getWeather} from '../services/ChristmasService'
 import Snowfall from 'react-snowfall'
 import Head from 'next/head'
 import { Rudolf } from './Rudolf';
+import {Weather} from "./Weather";
+
 
 class App extends Component {
 
   state = {
-    christmas: {}
+    christmas: {},
   }
 
-  async componentDidMount() {
-    let christmas = await getChristmas()
-    console.log(christmas);
-    this.setState({christmas: christmas})
-  }
+    async componentDidMount() {
+        let weather = await getWeather();
+        this.setState({weather: weather.current.feelslike_c});
+        setInterval(async () => {
+            let weather = await getWeather();
+            this.setState({weather: weather.current.feelslike_c});
+        }, 900_000);
+    }
 
   render() {
 
@@ -28,8 +31,12 @@ class App extends Component {
         </Head>
         <div className="row mrgnbtm">
           <Rudolf />
+          <Weather weather={this.state.weather} />
           <Snowfall />
         </div>
+          <div id="santa">
+              <img src="santa.png" />
+          </div>
       </div>
     );
   }
