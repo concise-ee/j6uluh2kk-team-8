@@ -30,8 +30,10 @@ class App extends Component {
         <div className="row mrgnbtm">
             <Weather weather={this.state.weather} />
           <Snowfall />
-
         </div>
+          <div id="santa">
+              <img src="santa.png" />
+          </div>
       </div>
     );
   }

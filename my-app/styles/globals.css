@@ -43,3 +43,28 @@ a {
 .temp {
   margin: 0 auto;
 }
+
+img {
+  height: auto;
+  width: auto;
+  max-width: 300px;
+  max-height: 300px;
+}
+#santa {
+  bottom: 3%;
+  position: absolute;
+  -webkit-animation: slide 10s linear infinite;
+  -webkit-animation-name: run;
+  -webkit-animation-duration: 3s;
+}
+@-webkit-keyframes run {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: calc(100% - 0px);
+  }
+  100% {
+    left: 0;
+  }
+}
