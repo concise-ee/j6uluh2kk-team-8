@@ -5,21 +5,33 @@ import Snowfall from 'react-snowfall'
 import Head from 'next/head'
 import { Rudolf } from './Rudolf';
 import {Weather} from "./Weather";
+import axios from "axios";
+
 
 
 class App extends Component {
 
   state = {
-    christmas: {},
+      hind:0,
   }
 
-    async componentDidMount() {
-        let weather = await getWeather();
-        this.setState({weather: weather.current.feelslike_c});
-        setInterval(async () => {
-            let weather = await getWeather();
-            this.setState({weather: weather.current.feelslike_c});
-        }, 900_000);
+  async componentDidMount() {
+      const api = 'https://dashboard.elering.ee/api/nps/price/EE/current'
+      try {
+          const response = await axios.get(api);
+          this.setState({
+              hind: response.data.data[0].price
+          });
+      } catch (error) {
+          console.error(error);
+      }
+
+      let weather = await getWeather();
+      this.setState({weather: weather.current.feelslike_c});
+      setInterval(async () => {
+          let weather = await getWeather();
+          this.setState({weather: weather.current.feelslike_c});
+      }, 900_000);
     }
 
   render() {
@@ -29,14 +41,17 @@ class App extends Component {
         <Head>
             <meta http-equiv="refresh" content="30" />
         </Head>
-        <div className="row mrgnbtm">
-          <Rudolf />
-          <Weather weather={this.state.weather} />
-          <Snowfall />
+
+
+        <div className="rows mrgnbtm">
+            <div>{this.state.hind} €/kWh</div>
+            <Weather weather={this.state.weather} />
+            <Rudolf />
         </div>
           <div id="santa">
               <img src="santa.png" />
           </div>
+          <Snowfall />
       </div>
     );
   }

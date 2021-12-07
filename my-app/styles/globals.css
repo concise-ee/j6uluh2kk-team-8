@@ -20,14 +20,14 @@ a {
 .header {
   width: 100%;
   padding: 2%;
-  background-color: white;
+
   color: white;
   text-align: center;
 }
 
 .display-board {
   width: 100%;
-  background-color: rgb(555, 200, 789);
+
   padding: 5%;
 }
 
@@ -42,7 +42,6 @@ a {
   background-color: #0b1c23;
   width: 100%;
 }
-
 
 .temp {
   margin: 0 auto;
