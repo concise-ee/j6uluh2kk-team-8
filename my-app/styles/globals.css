@@ -3140,7 +3140,6 @@ body {
   max-width: 25em;
   margin: auto;
   display: flex;
-  margin-top: 1.5em;
 }
 .info .block{
   flex: 1;
