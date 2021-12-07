@@ -3134,3 +3134,25 @@ body {
     transform: rotate(-10deg);
   }
 }
+
+
+.info{
+  background-color: rgba(255, 255, 255, 0.77);
+  max-width: 25em;
+  margin: auto;
+  display: flex;
+}
+.info .block{
+  flex: 1;
+  text-align: center;
+  padding:2em;
+}
+
+.info .block span{
+font-weight: bold;
+  font-size: 1.2em;
+}
+
+.price{
+
+}
