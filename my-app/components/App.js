@@ -5,6 +5,7 @@ import {Christmas} from './Christmas'
 import {getChristmas} from '../services/ChristmasService'
 import Snowfall from 'react-snowfall'
 import Head from 'next/head'
+import { Rudolf } from './Rudolf';
 
 class App extends Component {
 
@@ -26,8 +27,8 @@ class App extends Component {
             <meta http-equiv="refresh" content="30" />
         </Head>
         <div className="row mrgnbtm">
+          <Rudolf />
           <Snowfall />
-
         </div>
       </div>
     );
