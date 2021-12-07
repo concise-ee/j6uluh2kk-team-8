@@ -53,7 +53,8 @@ class App extends Component {
         </Head>
           <Rudolf />
         <div className="rows info">
-            <div className={'block price'}>{this.state.hind} €/kWh</div>
+            <div className={'block price'}>
+                <span>{this.state.hind} €/MWh </span></div>
             <div className={'block weather'}>
                  <Weather weather={this.state.weather} />
                 </div>
