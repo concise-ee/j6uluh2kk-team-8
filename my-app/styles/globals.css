@@ -276,7 +276,8 @@ img {
   z-index: 2;
 }
 .nose:before {
-  background-color: #FFFFFF;
+  /*background-color: #FFFFFF;*/
+  background-color: inherit;
   border-radius: 15px;
   content: "";
   display: block;

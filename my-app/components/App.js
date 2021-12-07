@@ -51,7 +51,7 @@ class App extends Component {
         <Head>
             <meta http-equiv="refresh" content="30" />
         </Head>
-          <Rudolf />
+          <Rudolf price={this.state.hind} />
         <div className="rows info">
             <div className={'block price'}>{this.state.hind} €/kWh</div>
             <div className={'block weather'}>
