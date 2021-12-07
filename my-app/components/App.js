@@ -28,8 +28,6 @@ class App extends Component {
         <div className="row mrgnbtm">
           <Snowfall />
 
-          <Christmas christmas={this.state.christmas}></Christmas>
-
         </div>
       </div>
     );
