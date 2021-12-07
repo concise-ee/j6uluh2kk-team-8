@@ -49,7 +49,7 @@ class App extends Component {
     return (
       <div className="App">
         <Head>
-            <meta http-equiv="refresh" content="30" />
+            {/*<meta http-equiv="refresh" content="30" />*/}
         </Head>
           <Rudolf price={this.state.hind} />
         <div className="rows info">
