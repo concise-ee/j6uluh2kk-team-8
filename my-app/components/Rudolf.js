@@ -1,6 +1,29 @@
 import React from 'react'
 
-export const Rudolf = ({christmas}) => {
+export const Rudolf = ({price}) => {
+
+  function colourGradientor(){
+    const rgb_beginning = [0, 0, 0];
+    const rgb_end = [255, 0, 0];
+
+    const kordaja = (1 - 1200) / 255
+
+    const p = price * kordaja;
+
+    var w = p * 2 - 1;
+
+
+    var w1 = (w + 1) / 2.0;
+    var w2 = 1 - w1;
+
+    var rgb = [parseInt(rgb_beginning[0] * w1 + rgb_end[0] * w2),
+      parseInt(rgb_beginning[1] * w1 + rgb_end[1] * w2),
+      parseInt(rgb_beginning[2] * w1 + rgb_end[2] * w2)];
+    return rgb;
+  };
+
+  const rgb = colourGradientor();
+
   return (
     <>
       <div className="container">
@@ -28,7 +51,9 @@ export const Rudolf = ({christmas}) => {
                   <div className="eye eye-left"></div>
                   <div className="eye eye-right"></div>
                 </div>
-                <div className="nose"></div>
+                <div className="nose" style={{
+                  backgroundColor: `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`
+                }}></div>
               </div>
               <div className="body">
                 <div className="shadow"></div>
